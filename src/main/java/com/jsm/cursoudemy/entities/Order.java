@@ -122,4 +122,15 @@ public class Order implements Serializable {
 			return false;
 		return true;
 	}
+	
+	public Double total() {
+		Double result = 0.0;
+		if (this.items == null || this.items.isEmpty())
+			return result;
+		for (OrderItem item : this.items) {
+			result += item.getSubTotal();
+		}
+		
+		return result;
+	}
 }	
